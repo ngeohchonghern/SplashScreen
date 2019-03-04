@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/simple_draw_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:actualImageResource="@drawable/login" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/svg_google"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="4dp"
+        app:animatedSvgFillColors="@array/logo_fill_colors"
+        app:animatedSvgFillStart="3000"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/logo_glyph_strings"
+        app:animatedSvgImageSizeX="640"
+        app:animatedSvgImageSizeY="640"
+        app:animatedSvgTraceMarkerLength="1"
+        app:animatedSvgTraceTime="2000"
+        app:animatedSvgTraceTimePerGlyph="3000"
+        app:layout_constraintEnd_toStartOf="@id/guideline_svg_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_svg_start"
+        app:layout_constraintTop_toBottomOf="@id/guideline_svg_top"
+        app:layout_constraintDimensionRatio="h,1:1"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/svg_text_logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="2dp"
+        app:animatedSvgFillColors="@array/text_logo_fill_colors"
+        app:animatedSvgFillStart="3000"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/text_logo_glyph_strings"
+        app:animatedSvgImageSizeX="1000"
+        app:animatedSvgImageSizeY="1000"
+        app:animatedSvgTraceMarkerLength="1"
+        app:animatedSvgTraceTime="2000"
+        app:animatedSvgTraceTimePerGlyph="3000"
+        app:layout_constraintTop_toTopOf="@id/svg_google"
+        app:layout_constraintBottom_toBottomOf="@id/svg_google"
+        app:layout_constraintStart_toEndOf="@id/svg_google"
+        app:layout_constraintDimensionRatio="w,1:1"/>
+
+    <!--<com.airbnb.lottie.LottieAnimationView-->
+    <!--android:id="@+id/imageButton"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:background="@drawable/ic_buttonrect"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--app:lottie_fileName="data3.json"-->
+    <!--android:translationZ="4dp"-->
+    <!--app:layout_constraintBottom_toBottomOf="@id/cardview_login"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/cardview_login"-->
+    <!--/>-->
+
+    <com.raymondyang.constraintlayouttesting.custom.LoginRefreshButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="4dp"
+        android:text="log in"
+        app:layout_constraintBottom_toBottomOf="@id/cardview_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_login"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_vertical_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.632" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.368" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.264" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2625"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_svg_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.786" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_login_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintGuide_percent="0.090277" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_login_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintGuide_percent="0.909722" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_login"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline_login_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_login_start"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText7"
+                app:layout_constraintVertical_weight="0.125" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Domain"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/editText6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view4"
+                app:layout_constraintVertical_weight="0.25"
+                />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="Name"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/editText7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText5"
+                app:layout_constraintVertical_weight="0.25"
+                />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText6"
+                app:layout_constraintVertical_weight="0.25"
+                />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toTopOf="@+id/editText5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintVertical_weight="0.125" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

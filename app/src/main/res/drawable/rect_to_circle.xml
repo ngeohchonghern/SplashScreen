@@ -1,0 +1,40 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <path
+                android:name="rectbutton"
+                android:pathData="M 23.5 12.1 C 23.5 13.6 22.3 14.8 20.8 14.8 L 3.2 14.8 C 1.7 14.8 0.5 13.6 0.5 12.1 L 0.5 11.8 C 0.5 10.3 1.7 9.1 3.2 9.1 L 20.8 9.1 C 22.3 9.1 23.5 10.3 23.5 11.8 L 23.5 12.1 Z"
+                android:fillColor="#5d73fa"
+                android:strokeWidth="1"/>
+            <path
+                android:name="roundbutton"
+                android:pathData="M 12 9.1 C 11.388 9.1 10.791 9.294 10.295 9.654 C 9.8 10.014 9.431 10.521 9.242 11.104 C 9.053 11.686 9.053 12.314 9.242 12.896 C 9.431 13.479 9.8 13.986 10.295 14.346 C 10.791 14.706 11.388 14.9 12 14.9 C 12.769 14.9 13.507 14.594 14.051 14.051 C 14.594 13.507 14.9 12.769 14.9 12 C 14.9 11.231 14.594 10.493 14.051 9.949 C 13.507 9.406 12.769 9.1 12 9.1 Z"
+                android:fillColor="#5d73fa"
+                android:strokeWidth="1"/>
+            <path
+                android:name="roundbuttonstroke"
+                android:pathData="M 12 9.1 C 11.388 9.1 10.791 9.294 10.295 9.654 C 9.8 10.014 9.431 10.521 9.242 11.104 C 9.053 11.686 9.053 12.314 9.242 12.896 C 9.431 13.479 9.8 13.986 10.295 14.346 C 10.791 14.706 11.388 14.9 12 14.9 C 12.769 14.9 13.507 14.594 14.051 14.051 C 14.594 13.507 14.9 12.769 14.9 12 C 14.9 11.231 14.594 10.493 14.051 9.949 C 13.507 9.406 12.769 9.1 12 9.1 Z"
+                android:strokeColor="#5d73fa"
+                android:strokeWidth="0.05"
+                android:strokeMiterLimit="10"/>
+        </vector>
+    </aapt:attr>
+    <target android:name="rectbutton">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="pathData"
+                android:duration="1000"
+                android:valueFrom="M 3.2 9.1 C 1.7 9.1 0.5 10.3 0.5 11.8 C 0.5 11.9 0.5 12 0.5 12.1 C 0.5 12.932 0.869 13.671 1.454 14.165 C 1.923 14.562 2.532 14.8 3.2 14.8 C 9.067 14.8 14.933 14.8 20.8 14.8 C 22.3 14.8 23.5 13.6 23.5 12.1 C 23.5 12.1 23.5 12.1 23.5 12.1 C 23.5 12 23.5 11.9 23.5 11.8 C 23.5 10.3 22.3 9.1 20.8 9.1 L 3.2 9.1"
+                android:valueTo="M 12 9.1 C 11.388 9.1 10.791 9.294 10.295 9.654 C 9.8 10.014 9.431 10.521 9.242 11.104 C 9.053 11.686 9.053 12.314 9.242 12.896 C 9.431 13.479 9.8 13.986 10.295 14.346 C 10.791 14.706 11.388 14.9 12 14.9 C 12.769 14.9 13.507 14.594 14.051 14.051 C 14.594 13.507 14.9 12.769 14.9 12 C 14.9 11.231 14.594 10.493 14.051 9.949 C 13.507 9.406 12.769 9.1 12 9.1 L 12 9.1"
+                android:valueType="pathType"
+                android:interpolator="@android:anim/accelerate_interpolator"/>
+        </aapt:attr>
+    </target>
+</animated-vector>

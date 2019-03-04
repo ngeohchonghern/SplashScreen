@@ -1,0 +1,238 @@
+package com.raymondyang.constraintlayouttesting;
+
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.widget.EditText;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.jaredrummler.android.widget.AnimatedSvgView;
+import com.raymondyang.constraintlayouttesting.custom.LoginRefreshButton;
+
+import java.util.concurrent.TimeUnit;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
+public class SecondActivity extends AppCompatActivity {
+    public static final String TAG = MainActivity.class.getSimpleName();
+    @BindView(R.id.simple_draw_main)
+    SimpleDraweeView simpleDrawMain;
+    @BindView(R.id.cardview)
+    CardView cardview;
+    @BindView(R.id.svg_google)
+    AnimatedSvgView svgGoogle;
+    @BindView(R.id.svg_text_logo)
+    AnimatedSvgView svgTextLogo;
+    @BindView(R.id.imageButton)
+    LoginRefreshButton imageButton;
+    @BindView(R.id.view3)
+    View view3;
+    @BindView(R.id.editText5)
+    EditText editText5;
+    @BindView(R.id.editText6)
+    EditText editText6;
+    @BindView(R.id.editText7)
+    EditText editText7;
+    @BindView(R.id.view4)
+    View view4;
+    @BindView(R.id.constraint_login)
+    ConstraintLayout constraintLogin;
+    @BindView(R.id.cardview_login)
+    CardView cardviewLogin;
+    @BindView(R.id.constraint)
+    ConstraintLayout constraint;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_1);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getSupportActionBar().hide();
+
+
+//        mImageView2 = findViewById(R.id.imageView2);
+
+        ButterKnife.bind(this);
+        imageButton.adjustBtnLayout();
+        svgGoogle.start();
+        svgTextLogo.start();
+
+
+        PixelXLScreenResizeUtil.adjustCardCorner(cardview);
+        PixelXLScreenResizeUtil.adjustCardCorner(cardviewLogin);
+
+
+        Log.d(TAG, "onClick: " + svgGoogle.getWidth() + "before" + svgGoogle.getHeight());
+        final CompositeDisposable compositeDisposable = new CompositeDisposable();
+        Observable.timer(3000, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        compositeDisposable.add(d);
+                    }
+
+                    @Override
+                    public void onNext(Long aLong) {
+                        ConstraintSet oldConstraint = new ConstraintSet();
+                        ConstraintSet currentConstraint = new ConstraintSet();
+
+                        ConstraintLayout constraintLayout = findViewById(R.id.constraint);
+                        int cardMargin = PixelXLScreenResizeUtil.getSvgCardMargin();
+
+                        //adjustButtonWidthHeight
+
+
+                        currentConstraint.clone(constraintLayout);
+                        currentConstraint.connect(cardviewLogin.getId(), ConstraintSet.TOP, R.id.svg_google, ConstraintSet.BOTTOM, cardMargin);
+
+                        //adjustButtonWidthHeight
+//                        currentConstraint.setDimensionRatio(imageButton.getId(), "h,1:1");
+//                        currentConstraint.constrainWidth(imageButton.getId(), PixelXLScreenResizeUtil.getPxValue(338));
+//                        currentConstraint.constrainHeight(imageButton.getId(), PixelXLScreenResizeUtil.getPxValue(90));
+
+
+                        currentConstraint.setDimensionRatio(cardview.getId(), "h,1:1");
+                        currentConstraint.connect(cardview.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, cardMargin);
+                        currentConstraint.connect(cardview.getId(), ConstraintSet.START, R.id.guideline_svg_vertical, ConstraintSet.START);
+                        currentConstraint.connect(cardview.getId(), ConstraintSet.END, R.id.guideline_svg_vertical_end, ConstraintSet.END);
+//
+
+                        currentConstraint.connect(svgGoogle.getId(), ConstraintSet.TOP, cardview.getId(), ConstraintSet.TOP);
+                        currentConstraint.connect(svgGoogle.getId(), ConstraintSet.START, cardview.getId(), ConstraintSet.START);
+                        currentConstraint.connect(svgGoogle.getId(), ConstraintSet.END, cardview.getId(), ConstraintSet.END);
+                        currentConstraint.connect(svgGoogle.getId(), ConstraintSet.BOTTOM, cardview.getId(), ConstraintSet.BOTTOM);
+//
+
+
+                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.TOP, cardview.getId(), ConstraintSet.TOP);
+                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.START, cardview.getId(), ConstraintSet.START);
+//
+                        TransitionManager.beginDelayedTransition(constraintLayout, new AutoTransition().setDuration(3000));
+
+                        currentConstraint.applyTo(constraintLayout);
+
+
+                        Log.d(TAG, "onClick: " + svgGoogle.getWidth() + "after" + svgGoogle.getHeight());
+
+                        AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
+                        alphaAnimation.setDuration(3000);
+                        alphaAnimation.setFillAfter(true);
+                        svgTextLogo.setAnimation(alphaAnimation);
+
+
+                        compositeDisposable.dispose();
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        int cardSvgMargin = pxToDp(PixelXLScreenResizeUtil.getSvgCardMargin(), 560);
+
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                imageButton.setAnimation("data2.json");
+//                imageButton.playAnimation();
+//
+//            }
+//        });
+//
+
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onClick: " + svgGoogle.getWidth() + " " + svgGoogle.getHeight());
+    }
+
+    public int pxToDp(int px, int dpi) {
+
+//        int px = dp * dpi / 160;
+        int dp = px * 160 / dpi;
+
+        return px;
+    }
+
+    public void clickOnButton(View view) {
+
+//        imageButton.setImageResource(R.drawable.rect_to_circle);
+//
+//        AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageButton.getDrawable();
+//        animatedVectorDrawable.start();
+
+//        Drawable drawable = LottieDrawable.createFromPath("/Users/raymondyang/Downloads/ConstraintLayoutTesting/app/src/main/assets");
+//        imageButton.setImageDrawable(drawable);
+
+
+    }
+
+
+    private void login() {
+
+    }
+
+    private boolean validate() {
+        boolean validate = true;
+
+        if (TextUtils.isEmpty(editText5.getText())) {
+            validate = false;
+        }
+
+        if (TextUtils.isEmpty(editText6.getText())) {
+            validate = false;
+        }
+
+        if (TextUtils.isEmpty(editText7.getText())) {
+            validate = false;
+        }
+
+        return validate;
+    }
+
+
+    @OnClick(R.id.imageButton)
+    void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.imageButton:
+                if (validate()) {
+                    login();
+                }
+                break;
+        }
+
+    }
+}
+
+
