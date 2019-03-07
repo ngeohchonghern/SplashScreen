@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,10 +18,20 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
+import com.raymondyang.constraintlayouttesting.HomeActivity;
+import com.raymondyang.constraintlayouttesting.MainActivity;
 import com.raymondyang.constraintlayouttesting.PixelXLScreenResizeUtil;
+import com.raymondyang.constraintlayouttesting.SecondActivity;
+
+import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public class RefreshButton extends AppCompatTextView {
 
@@ -112,12 +123,20 @@ public class RefreshButton extends AppCompatTextView {
             public void onAnimationEnd(Animator animation) {
                 Log.d(TAG, "onAnimationEnd: ");
 //                scaleAnimator = null;
+                startrefreshAnimate();
+
+            }
+
+            private void startrefreshAnimate() {
                 refreshAnimator = ObjectAnimator.ofFloat(RefreshButton.this, "animRotationArc", 0, 1);
                 refreshAnimator.setInterpolator(new LinearInterpolator());
                 refreshAnimator.setDuration(DURATION);
                 refreshAnimator.setRepeatMode(ObjectAnimator.RESTART);
                 refreshAnimator.setRepeatCount(ObjectAnimator.INFINITE);
                 refreshAnimator.start();
+
+
+
             }
 
             @Override
