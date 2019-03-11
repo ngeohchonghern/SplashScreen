@@ -1,4 +1,4 @@
 # LoginSplashScreen
-![](https://imgur.com/5y9qF5D)
-![](https://imgur.com/hDnpTQt)
-![](https://imgur.com/91Ysl20)
+![](https://i.imgur.com/VHsr9sg.gif)
+![](https://i.imgur.com/RM6YWk2.gif)
+
