@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/framelayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/google_yellow">
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:padding="10dp"
+    >
+
 
     <androidx.cardview.widget.CardView
-        android:layout_width="500dp"
-        android:layout_height="500dp"
-        android:background="@color/google_green"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="100dp"
-        app:cardUseCompatPadding="true"
-        app:contentPadding="16dp" />
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/google_blue"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:background="@android:color/white">
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/simpledrawee"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--app:roundedCornerRadius="20dp"-->
+
+
+            <!--android:background="@drawable/case_detail_background"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:placeholderImage="@drawable/case_detail_background" />-->
+
+            <ImageView
+                android:id="@+id/simpledrawee"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+
+                android:background="@drawable/case_detail_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/titletext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-medium"
+                android:text="Amsterdam"
+                android:editable="false"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                app:layout_constraintBottom_toBottomOf="@+id/simpledrawee"
+                app:layout_constraintEnd_toEndOf="@+id/simple_drawee"
+                app:layout_constraintStart_toStartOf="@+id/simpledrawee" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

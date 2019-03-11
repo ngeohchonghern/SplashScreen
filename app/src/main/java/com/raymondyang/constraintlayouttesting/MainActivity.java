@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.jaredrummler.android.widget.AnimatedSvgView;
 import com.kelin.translucentbar.library.TranslucentBarManager;
 import com.raymondyang.constraintlayouttesting.custom.LoginRefreshButton;
@@ -45,11 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.view3)
     View view3;
     @BindView(R.id.editText5)
-    EditText editText5;
+    TextInputLayout editText5;
     @BindView(R.id.editText6)
-    EditText editText6;
+    TextInputLayout editText6;
     @BindView(R.id.editText7)
-    EditText editText7;
+    TextInputLayout editText7;
     @BindView(R.id.view4)
     View view4;
     @BindView(R.id.constraint_login)
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CardView cardView;
     @BindView(R.id.constraint)
     ConstraintLayout constraint;
-    @BindView(R.id.svg_text_logo)
-    AnimatedSvgView svgTextLogo;
+//    @BindView(R.id.svg_text_logo)
+//    AnimatedSvgView svgTextLogo;
     @BindView(R.id.imageButton)
     LoginRefreshButton imageButton;
 
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageButton.setOnClickListener(this);
         imageButton.adjustBtnLayout();
         mAnimatedSvgView.start();
-        svgTextLogo.start();
+//        svgTextLogo.start();
 
 
         PixelXLScreenResizeUtil.adjustCardCorner(cardView);
@@ -146,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 
 
-                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.TOP, cardView.getId(), ConstraintSet.TOP);
-                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.START, cardView.getId(), ConstraintSet.START);
+//                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.TOP, cardView.getId(), ConstraintSet.TOP);
+//                        currentConstraint.connect(svgTextLogo.getId(), ConstraintSet.START, cardView.getId(), ConstraintSet.START);
 //
                         TransitionManager.beginDelayedTransition(constraintLayout, new AutoTransition().setDuration(3000));
 
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
                         alphaAnimation.setDuration(3000);
                         alphaAnimation.setFillAfter(true);
-                        svgTextLogo.setAnimation(alphaAnimation);
+//                        svgTextLogo.setAnimation(alphaAnimation);
 
 
                         compositeDisposable.dispose();
@@ -234,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void onNext(Long aLong) {
-                        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
 
 

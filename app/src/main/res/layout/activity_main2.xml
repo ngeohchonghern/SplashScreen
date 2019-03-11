@@ -5,26 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Main2Activity"
-    android:background="@color/google_green">
-    <FrameLayout
+
+    >
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/simple_drawee_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/google_green"></FrameLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/google_yellow"
-        app:cardElevation="400dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
+        />
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/google_blue"-->
+        <!--tools:layout_editor_absoluteX="254dp"-->
+        <!--tools:layout_editor_absoluteY="136dp">-->
+
+        <!--<androidx.cardview.widget.CardView-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--app:cardBackgroundColor="@color/google_red"></androidx.cardview.widget.CardView>-->
+
+    <!--</FrameLayout>-->
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerview_tes"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/google_green"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+        <!--tools:listitem="@layout/framelayout_item" />-->
+
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:id="@+id/button"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:background="@drawable/case_detail_background"-->
+        <!--android:elevation="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<View-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:background="@color/google_blue"-->
+        <!--android:elevation="16dp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/button"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.497"-->
+        <!--app:layout_constraintStart_toStartOf="parent"></View>-->
+
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--app:cardBackgroundColor="@color/google_red"-->
+        <!--app:cardElevation="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/button"></androidx.cardview.widget.CardView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

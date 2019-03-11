@@ -5,31 +5,50 @@
     android:id="@+id/coordinate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+
     tools:context=".HomeActivity">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/header"
+        android:background="@drawable/gradient_1"
         />
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@drawable/header"-->
+
+        <!--/>-->
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:background="@android:color/transparent"
+       android:theme="@style/AppTheme.AppBarOverlay"
+
+
+
+
 
         >
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:title="@string/app_name"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
 
             >
 
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/header"-->
+
+                <!--/>-->
 
 <!--
             pin means pin the toolbar at it place
@@ -39,18 +58,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                android:background="@android:color/transparent"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+
 
 
                 ></androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/google_yellow"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/framelayout_item" />
 

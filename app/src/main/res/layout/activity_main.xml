@@ -13,6 +13,8 @@
         android:layout_height="match_parent"
         app:actualImageResource="@drawable/login" />
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="0dp"
@@ -44,24 +46,24 @@
         app:layout_constraintDimensionRatio="h,1:1"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <com.jaredrummler.android.widget.AnimatedSvgView
-        android:id="@+id/svg_text_logo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:translationZ="2dp"
-        app:animatedSvgFillColors="@array/text_logo_fill_colors"
-        app:animatedSvgFillStart="3000"
-        app:animatedSvgFillTime="1000"
-        app:animatedSvgGlyphStrings="@array/text_logo_glyph_strings"
-        app:animatedSvgImageSizeX="1000"
-        app:animatedSvgImageSizeY="1000"
-        app:animatedSvgTraceMarkerLength="1"
-        app:animatedSvgTraceTime="2000"
-        app:animatedSvgTraceTimePerGlyph="3000"
-        app:layout_constraintTop_toTopOf="@id/svg_google"
-        app:layout_constraintBottom_toBottomOf="@id/svg_google"
-        app:layout_constraintStart_toEndOf="@id/svg_google"
-        app:layout_constraintDimensionRatio="w,1:1"/>
+    <!--<com.jaredrummler.android.widget.AnimatedSvgView-->
+        <!--android:id="@+id/svg_text_logo"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:translationZ="2dp"-->
+        <!--app:animatedSvgFillColors="@array/text_logo_fill_colors"-->
+        <!--app:animatedSvgFillStart="3000"-->
+        <!--app:animatedSvgFillTime="1000"-->
+        <!--app:animatedSvgGlyphStrings="@array/text_logo_glyph_strings"-->
+        <!--app:animatedSvgImageSizeX="1000"-->
+        <!--app:animatedSvgImageSizeY="1000"-->
+        <!--app:animatedSvgTraceMarkerLength="1"-->
+        <!--app:animatedSvgTraceTime="2000"-->
+        <!--app:animatedSvgTraceTimePerGlyph="3000"-->
+        <!--app:layout_constraintTop_toTopOf="@id/svg_google"-->
+        <!--app:layout_constraintBottom_toBottomOf="@id/svg_google"-->
+        <!--app:layout_constraintStart_toEndOf="@id/svg_google"-->
+        <!--app:layout_constraintDimensionRatio="w,1:1"/>-->
 
     <!--<com.airbnb.lottie.LottieAnimationView-->
         <!--android:id="@+id/imageButton"-->
@@ -125,14 +127,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2625"/>
+        app:layout_constraintGuide_percent="0.3813"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_svg_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6187" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_svg_bottom"
@@ -190,46 +192,71 @@
                 app:layout_constraintTop_toBottomOf="@+id/editText7"
                 app:layout_constraintVertical_weight="0.125" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editText5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Domain"
-                android:inputType="textPersonName"
+                android:layout_margin="8dp"
+                app:errorEnabled="true"
                 app:layout_constraintBottom_toTopOf="@+id/editText6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view4"
-                app:layout_constraintVertical_weight="0.25"
-                />
+                app:layout_constraintVertical_weight="0.25">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editText6"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:hint="Name"
-                android:inputType="textEmailAddress"
+                android:layout_margin="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:errorEnabled="true"
                 app:layout_constraintBottom_toTopOf="@+id/editText7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText5"
-                app:layout_constraintVertical_weight="0.25"
-                />
+                app:layout_constraintVertical_weight="0.25">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username"
+                    android:inputType="textPersonName" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editText7"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:hint="Password"
-                android:inputType="textPersonName"
+                android:layout_margin="8dp"
+                app:errorEnabled="true"
                 app:layout_constraintBottom_toTopOf="@+id/view3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText6"
-                app:layout_constraintVertical_weight="0.25"
-                />
+                app:layout_constraintVertical_weight="0.25">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:id="@+id/view4"
@@ -240,7 +267,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintVertical_chainStyle="spread_inside"
                 app:layout_constraintVertical_weight="0.125" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
